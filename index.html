@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EcoSoul – Sustainable Living</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <header class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#home" class="logo" onclick="smoothScroll(event,'home')">
+        <span class="logo-leaf">🌿</span> EcoSoul
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav-links" id="navLinks">
+        <a href="#home"    onclick="smoothScroll(event,'home')">Home</a>
+        <a href="#shop"    onclick="smoothScroll(event,'shop')">Shop</a>
+        <a href="#about"   onclick="smoothScroll(event,'about')">About Us</a>
+        <a href="#contact" onclick="smoothScroll(event,'contact')">Contact</a>
+        <button class="cart-btn" id="cartBtn" onclick="toggleCart()">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10a4 4 0 0 1-8 0"/>
+          </svg>
+          Cart
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="home">
+    <div class="hero-bg-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+    </div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">✦ Mindful. Minimal. Meaningful.</p>
+      <h1 class="hero-title">Sustainable<br /><em>Living Starts</em><br />Here.</h1>
+      <p class="hero-sub">Handcrafted eco-products made with love for the planet —<br />incense, plantable calendars &amp; seed paper bookmarks.</p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="smoothScroll(event,'shop')">Shop Now</button>
+        <a href="#about" class="btn-ghost" onclick="smoothScroll(event,'about')">Our Story →</a>
+      </div>
+      <div class="hero-badges">
+        <span>🌱 Zero Waste</span>
+        <span>♻️ Biodegradable</span>
+        <span>🤍 Cruelty-Free</span>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card-stack">
+        <div class="hcard hcard-1">🕯️<p>Lavender Calm</p></div>
+        <div class="hcard hcard-2">📅<p>Seed Calendar</p></div>
+        <div class="hcard hcard-3">🔖<p>Plantable Bookmark</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TRUST BAR ===== -->
+  <div class="trust-bar">
+    <div class="trust-inner">
+      <div class="trust-item"><span>🌍</span> Planet-Positive Materials</div>
+      <div class="trust-item"><span>🌾</span> Handmade in India</div>
+      <div class="trust-item"><span>📦</span> Plastic-Free Packaging</div>
+      <div class="trust-item"><span>💚</span> 1 Tree Planted per Order</div>
+    </div>
+  </div>
+
+  <!-- ===== SHOP ===== -->
+  <section class="shop" id="shop">
+    <div class="section-header">
+      <p class="section-eyebrow">Our Collection</p>
+      <h2 class="section-title">Shop Mindfully</h2>
+      <p class="section-sub">Every product is a small act of love for the earth.</p>
+    </div>
+
+    <!-- FILTER TABS -->
+    <div class="filter-tabs">
+      <button class="tab active" onclick="filterProducts(event,'all')">All Products</button>
+      <button class="tab" onclick="filterProducts(event,'incense')">🌸 Incense Sticks</button>
+      <button class="tab" onclick="filterProducts(event,'calendar')">📅 Calendars</button>
+      <button class="tab" onclick="filterProducts(event,'bookmark')">🔖 Bookmarks</button>
+    </div>
+
+    <!-- PRODUCT GRID -->
+    <div class="product-grid" id="productGrid">
+
+      <!-- INCENSE STICKS -->
+      <article class="product-card" data-category="incense" data-id="1" data-name="Lavender Calm Incense" data-price="199">
+        <div class="card-badge">Bestseller</div>
+        <div class="card-img incense-img">
+          <div class="img-placeholder">🌸</div>
+        </div>
+        <div class="card-body">
+          <p class="card-cat">Incense Sticks</p>
+          <h3 class="card-name">Lavender Calm Incense</h3>
+          <ul class="card-benefits">
+            <li>✦ Deep relaxation</li>
+            <li>✦ Stress relief</li>
+            <li>✦ 100% natural oils</li>
+          </ul>
+          <div class="card-footer">
+            <span class="price">₹199</span>
+            <div class="card-actions">
+              <button class="btn-cart" onclick="addToCart(1,'Lavender Calm Incense',199)">Add to Cart</button>
+              <button class="btn-buy" onclick="buyNow('Lavender Calm Incense')">Buy Now</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card" data-category="incense" data-id="2" data-name="Sandalwood Bliss Incense" data-price="249">
+        <div class="card-img incense-img">
+          <div class="img-placeholder">🪵</div>
+        </div>
+        <div class="card-body">
+          <p class="card-cat">Incense Sticks</p>
+          <h3 class="card-name">Sandalwood Bliss Incense</h3>
+          <ul class="card-benefits">
+            <li>✦ Meditation aid</li>
+            <li>✦ Grounding &amp; centring</li>
+            <li>✦ Long-lasting aroma</li>
+          </ul>
+          <div class="card-footer">
+            <span class="price">₹249</span>
+            <div class="card-actions">
+              <button class="btn-cart" onclick="addToCart(2,'Sandalwood Bliss Incense',249)">Add to Cart</button>
+              <button class="btn-buy" onclick="buyNow('Sandalwood Bliss Incense')">Buy Now</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card" data-category="incense" data-id="3" data-name="Rose Harmony Incense" data-price="219">
+        <div class="card-img incense-img">
+          <div class="img-placeholder">🌹</div>
+        </div>
+        <div class="card-body">
+          <p class="card-cat">Incense Sticks</p>
+          <h3 class="card-name">Rose Harmony Incense</h3>
+          <ul class="card-benefits">
+            <li>✦ Mood uplifting</li>
+            <li>✦ Floral warmth</li>
+            <li>✦ Chemical-free</li>
+          </ul>
+          <div class="card-footer">
+            <span class="price">₹219</span>
+            <div class="card-actions">
+              <button class="btn-cart" onclick="addToCart(3,'Rose Harmony Incense',219)">Add to Cart</button>
+              <button class="btn-buy" onclick="buyNow('Rose Harmony Incense')">Buy Now</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- SEED PAPER CALENDARS -->
+      <article class="product-card" data-category="calendar" data-id="4" data-name="Floral Bloom Calendar" data-price="349">
+        <div class="card-badge eco">Plantable</div>
+        <div class="card-img calendar-img">
+          <div class="img-placeholder">🌸</div>
+        </div>
+        <div class="card-body">
+          <p class="card-cat">Seed Paper Calendar</p>
+          <h3 class="card-name">Floral Bloom Calendar</h3>
+          <ul class="card-benefits">
+            <li>✦ Plantable seed paper</li>
+            <li>✦ Grows into herbs/flowers</li>
+            <li>✦ Handcrafted design</li>
+          </ul>
+          <div class="card-footer">
+            <span class="price">₹349</span>
+            <div class="card-actions">
+              <button class="btn-cart" onclick="addToCart(4,'Floral Bloom Calendar',349)">Add to Cart</button>
+              <button class="btn-buy" onclick="buyNow('Floral Bloom Calendar')">Buy Now</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card" data-category="calendar" data-id="5" data-name="Minimal Green Calendar" data-price="299">
+        <div class="card-img calendar-img">
+          <div class="img-placeholder">🌿</div>
+        </div>
+        <div class="card-body">
+          <p class="card-cat">Seed Paper Calendar</p>
+          <h3 class="card-name">Minimal Green Calendar</h3>
+          <ul class="card-benefits">
+            <li>✦ Plantable seed paper</li>
+            <li>✦ Grows into herbs/flowers</li>
+            <li>✦ Clean minimal layout</li>
+          </ul>
+          <div class="card-footer">
+            <span class="price">₹299</span>
+            <div class="card-actions">
+              <button class="btn-cart" onclick="addToCart(5,'Minimal Green Calendar',299)">Add to Cart</button>
+              <button class="btn-buy" onclick="buyNow('Minimal Green Calendar')">Buy Now</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card" data-category="calendar" data-id="6" data-name="Nature Art Calendar" data-price="379">
+        <div class="card-badge">New</div>
+        <div class="card-img calendar-img">
+          <div class="img-placeholder">🍃</div>
+        </div>
+        <div class="card-body">
+          <p class="card-cat">Seed Paper Calendar</p>
+          <h3 class="card-name">Nature Art Calendar</h3>
+          <ul class="card-benefits">
+            <li>✦ Plantable seed paper</li>
+            <li>✦ Grows into herbs/flowers</li>
+            <li>✦ Illustrated nature art</li>
+          </ul>
+          <div class="card-footer">
+            <span class="price">₹379</span>
+            <div class="card-actions">
+              <button class="btn-cart" onclick="addToCart(6,'Nature Art Calendar',379)">Add to Cart</button>
+              <button class="btn-buy" onclick="buyNow('Nature Art Calendar')">Buy Now</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card" data-category="calendar" data-id="7" data-name="Botanical Life Calendar" data-price="329">
+        <div class="card-img calendar-img">
+          <div class="img-placeholder">🌺</div>
+        </div>
+        <div class="card-body">
+          <p class="card-cat">Seed Paper Calendar</p>
+          <h3 class="card-name">Botanical Life Calendar</h3>
+          <ul class="card-benefits">
+            <li>✦ Plantable seed paper</li>
+            <li>✦ Grows into herbs/flowers</li>
+            <li>✦ Botanical watercolour art</li>
+          </ul>
+          <div class="card-footer">
+            <span class="price">₹329</span>
+            <div class="card-actions">
+              <button class="btn-cart" onclick="addToCart(7,'Botanical Life Calendar',329)">Add to Cart</button>
+              <button class="btn-buy" onclick="buyNow('Botanical Life Calendar')">Buy Now</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- SEED PAPER BOOKMARKS -->
+      <article class="product-card" data-category="bookmark" data-id="8" data-name="Leaf Imprint Bookmark" data-price="99">
+        <div class="card-img bookmark-img">
+          <div class="img-placeholder">🍂</div>
+        </div>
+        <div class="card-body">
+          <p class="card-cat">Seed Paper Bookmark</p>
+          <h3 class="card-name">Leaf Imprint Bookmark</h3>
+          <ul class="card-benefits">
+            <li>✦ 100% biodegradable</li>
+            <li>✦ Plant after use</li>
+            <li>✦ Real leaf texture</li>
+          </ul>
+          <div class="card-footer">
+            <span class="price">₹99</span>
+            <div class="card-actions">
+              <button class="btn-cart" onclick="addToCart(8,'Leaf Imprint Bookmark',99)">Add to Cart</button>
+              <button class="btn-buy" onclick="buyNow('Leaf Imprint Bookmark')">Buy Now</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card" data-category="bookmark" data-id="9" data-name="Floral Edge Bookmark" data-price="109">
+        <div class="card-img bookmark-img">
+          <div class="img-placeholder">🌼</div>
+        </div>
+        <div class="card-body">
+          <p class="card-cat">Seed Paper Bookmark</p>
+          <h3 class="card-name">Floral Edge Bookmark</h3>
+          <ul class="card-benefits">
+            <li>✦ 100% biodegradable</li>
+            <li>✦ Plant after use</li>
+            <li>✦ Pressed flower design</li>
+          </ul>
+          <div class="card-footer">
+            <span class="price">₹109</span>
+            <div class="card-actions">
+              <button class="btn-cart" onclick="addToCart(9,'Floral Edge Bookmark',109)">Add to Cart</button>
+              <button class="btn-buy" onclick="buyNow('Floral Edge Bookmark')">Buy Now</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card" data-category="bookmark" data-id="10" data-name="Minimal Quote Bookmark" data-price="89">
+        <div class="card-img bookmark-img">
+          <div class="img-placeholder">✍️</div>
+        </div>
+        <div class="card-body">
+          <p class="card-cat">Seed Paper Bookmark</p>
+          <h3 class="card-name">Minimal Quote Bookmark</h3>
+          <ul class="card-benefits">
+            <li>✦ 100% biodegradable</li>
+            <li>✦ Plant after use</li>
+            <li>✦ Inspirational quote</li>
+          </ul>
+          <div class="card-footer">
+            <span class="price">₹89</span>
+            <div class="card-actions">
+              <button class="btn-cart" onclick="addToCart(10,'Minimal Quote Bookmark',89)">Add to Cart</button>
+              <button class="btn-buy" onclick="buyNow('Minimal Quote Bookmark')">Buy Now</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card" data-category="bookmark" data-id="11" data-name="Nature Pattern Bookmark" data-price="119">
+        <div class="card-img bookmark-img">
+          <div class="img-placeholder">🌾</div>
+        </div>
+        <div class="card-body">
+          <p class="card-cat">Seed Paper Bookmark</p>
+          <h3 class="card-name">Nature Pattern Bookmark</h3>
+          <ul class="card-benefits">
+            <li>✦ 100% biodegradable</li>
+            <li>✦ Plant after use</li>
+            <li>✦ Geometric nature print</li>
+          </ul>
+          <div class="card-footer">
+            <span class="price">₹119</span>
+            <div class="card-actions">
+              <button class="btn-cart" onclick="addToCart(11,'Nature Pattern Bookmark',119)">Add to Cart</button>
+              <button class="btn-buy" onclick="buyNow('Nature Pattern Bookmark')">Buy Now</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card" data-category="bookmark" data-id="12" data-name="Earth Tone Bookmark" data-price="99">
+        <div class="card-img bookmark-img">
+          <div class="img-placeholder">🌍</div>
+        </div>
+        <div class="card-body">
+          <p class="card-cat">Seed Paper Bookmark</p>
+          <h3 class="card-name">Earth Tone Bookmark</h3>
+          <ul class="card-benefits">
+            <li>✦ 100% biodegradable</li>
+            <li>✦ Plant after use</li>
+            <li>✦ Warm earthy palette</li>
+          </ul>
+          <div class="card-footer">
+            <span class="price">₹99</span>
+            <div class="card-actions">
+              <button class="btn-cart" onclick="addToCart(12,'Earth Tone Bookmark',99)">Add to Cart</button>
+              <button class="btn-buy" onclick="buyNow('Earth Tone Bookmark')">Buy Now</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card" data-category="bookmark" data-id="13" data-name="Wildflower Bookmark" data-price="129">
+        <div class="card-badge">Popular</div>
+        <div class="card-img bookmark-img">
+          <div class="img-placeholder">💐</div>
+        </div>
+        <div class="card-body">
+          <p class="card-cat">Seed Paper Bookmark</p>
+          <h3 class="card-name">Wildflower Bookmark</h3>
+          <ul class="card-benefits">
+            <li>✦ 100% biodegradable</li>
+            <li>✦ Plant after use</li>
+            <li>✦ Wild-meadow seeds</li>
+          </ul>
+          <div class="card-footer">
+            <span class="price">₹129</span>
+            <div class="card-actions">
+              <button class="btn-cart" onclick="addToCart(13,'Wildflower Bookmark',129)">Add to Cart</button>
+              <button class="btn-buy" onclick="buyNow('Wildflower Bookmark')">Buy Now</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card" data-category="bookmark" data-id="14" data-name="Zen Art Bookmark" data-price="109">
+        <div class="card-img bookmark-img">
+          <div class="img-placeholder">☯️</div>
+        </div>
+        <div class="card-body">
+          <p class="card-cat">Seed Paper Bookmark</p>
+          <h3 class="card-name">Zen Art Bookmark</h3>
+          <ul class="card-benefits">
+            <li>✦ 100% biodegradable</li>
+            <li>✦ Plant after use</li>
+            <li>✦ Meditative line art</li>
+          </ul>
+          <div class="card-footer">
+            <span class="price">₹109</span>
+            <div class="card-actions">
+              <button class="btn-cart" onclick="addToCart(14,'Zen Art Bookmark',109)">Add to Cart</button>
+              <button class="btn-buy" onclick="buyNow('Zen Art Bookmark')">Buy Now</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card" data-category="bookmark" data-id="15" data-name="Recycled Kraft Bookmark" data-price="79">
+        <div class="card-img bookmark-img">
+          <div class="img-placeholder">📜</div>
+        </div>
+        <div class="card-body">
+          <p class="card-cat">Seed Paper Bookmark</p>
+          <h3 class="card-name">Recycled Kraft Bookmark</h3>
+          <ul class="card-benefits">
+            <li>✦ 100% biodegradable</li>
+            <li>✦ Plant after use</li>
+            <li>✦ Raw kraft texture</li>
+          </ul>
+          <div class="card-footer">
+            <span class="price">₹79</span>
+            <div class="card-actions">
+              <button class="btn-cart" onclick="addToCart(15,'Recycled Kraft Bookmark',79)">Add to Cart</button>
+              <button class="btn-buy" onclick="buyNow('Recycled Kraft Bookmark')">Buy Now</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div><!-- /product-grid -->
+  </section>
+
+  <!-- ===== CART SIDEBAR ===== -->
+  <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+  <aside class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h2>Your Cart 🌿</h2>
+      <button class="cart-close" onclick="toggleCart()">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <div class="cart-empty" id="cartEmpty">
+        <p>🌱 Your cart is empty.</p>
+        <p class="cart-empty-sub">Add something beautiful!</p>
+      </div>
+    </div>
+    <div class="cart-summary" id="cartSummary" style="display:none;">
+      <div class="cart-total-row">
+        <span>Total</span>
+        <span id="cartTotal" class="cart-total-price">₹0</span>
+      </div>
+      <button class="btn-primary full-width" onclick="checkout()">Proceed to Checkout</button>
+      <button class="btn-ghost full-width mt-sm" onclick="clearCart()">Clear Cart</button>
+    </div>
+  </aside>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="about" id="about">
+    <div class="about-inner">
+      <div class="about-text">
+        <p class="section-eyebrow">Our Story</p>
+        <h2 class="section-title">Born from the Earth,<br /><em>Made for Tomorrow.</em></h2>
+        <p>EcoSoul was born out of a simple belief — that the things we surround ourselves with every day should not cost the earth its future. We are a small team of artisans, designers, and nature lovers based in India, creating products that are as kind to the planet as they are beautiful in your home.</p>
+        <p>Every incense stick is hand-rolled using pure botanical extracts and natural binding agents — no synthetic chemicals, no harmful fillers. Our seed paper products are crafted from post-consumer waste paper embedded with wildflower and herb seeds, so when you're done with them, you simply plant them and watch life grow.</p>
+        <p>Our philosophy is rooted in the idea of <strong>zero waste by design</strong> — products that return to the earth without a trace of guilt.</p>
+        <div class="about-stats">
+          <div class="stat"><strong>3000+</strong><span>Happy Customers</span></div>
+          <div class="stat"><strong>500+</strong><span>Trees Planted</span></div>
+          <div class="stat"><strong>100%</strong><span>Natural Materials</span></div>
+        </div>
+      </div>
+      <div class="about-visual">
+        <div class="about-card">
+          <div class="about-img-big">🌿</div>
+          <p class="about-card-caption">Handcrafted in India with love &amp; intention.</p>
+        </div>
+        <div class="about-pill">♻️ Zero Waste Philosophy</div>
+        <div class="about-pill">🌱 Seed to Product</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="contact" id="contact">
+    <div class="contact-inner">
+      <div class="contact-text">
+        <p class="section-eyebrow">Get in Touch</p>
+        <h2 class="section-title">We'd Love to<br /><em>Hear from You.</em></h2>
+        <p>Have a question, a custom order request, or just want to say hi? Drop us a message and we'll get back to you within 24 hours.</p>
+        <div class="contact-info">
+          <p>📧 hello@ecosoul.in</p>
+          <p>📞 +91 98765 43210</p>
+          <p>📍 Bengaluru, India</p>
+        </div>
+      </div>
+      <form class="contact-form" id="contactForm" onsubmit="submitForm(event)">
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" placeholder="Priya Sharma" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="priya@email.com" required />
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="Tell us how we can help..." required></textarea>
+        </div>
+        <button type="submit" class="btn-primary full-width">Send Message 🌿</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <p class="footer-logo">🌿 EcoSoul</p>
+        <p class="footer-tagline">"Live gently. Leave only beauty."</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <a href="#home"    onclick="smoothScroll(event,'home')">Home</a>
+        <a href="#shop"    onclick="smoothScroll(event,'shop')">Shop</a>
+        <a href="#about"   onclick="smoothScroll(event,'about')">About Us</a>
+        <a href="#contact" onclick="smoothScroll(event,'contact')">Contact</a>
+      </div>
+      <div class="footer-social">
+        <h4>Follow Us</h4>
+        <div class="social-links">
+          <a href="#" aria-label="Instagram">📸 Instagram</a>
+          <a href="#" aria-label="Pinterest">📌 Pinterest</a>
+          <a href="#" aria-label="Facebook">👥 Facebook</a>
+          <a href="#" aria-label="Twitter">🐦 Twitter</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 EcoSoul. All rights reserved. | Made with 💚 for the Planet</p>
+    </div>
+  </footer>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
